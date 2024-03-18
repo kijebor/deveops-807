@@ -1,0 +1,18 @@
+Steps to install Jenkins on EC2 instance 
+
+For Amazon Linux 2 operating system 
+
+
+sudo dnf install java-11-amazon-corretto
+sudo dnf install java-11-amazon-corretto-devel
+java -version
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo dnf install jenkins -y
+sudo dnf install docker -y
+jenkins --version
+sudo systemctl start jenkins
+sudo systemctl start docker 
+sudo systemctl status jenkins
+
