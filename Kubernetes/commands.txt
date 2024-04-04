@@ -1,0 +1,38 @@
+1. Clone the github repo on K8's server - git clone https://github.com/kushaggarwal/Devops-807.git
+2, Cd Kubernetes/
+
+Taints and Tolerations
+
+1. Apply the taints over two nodes 
+
+$  kubectl taint nodes node3 key2=test:NoExecute
+$  kubectl taint nodes node4 key1=test:NoSchedule
+
+2. Apply the pod manifest to schedule the pod with Tolerations
+
+$ kubectl apply -f pod-taint.yaml
+$ kubectl apply -f pod-taint2.yaml
+
+3. Check the pods to be scheduled on respective nodes as per the toleration applied
+
+$ kubectl get pods -o wide
+
+
+Node Selector 
+
+
+1. Apply node selector label on node2
+
+$ kubectl label nodes node2 name=node2
+
+2. Check the label to be applied over the node
+
+$  kubectl describe node node2
+
+3. Apply the pod manifest with the node label present 
+
+$ kubectl apply -f pod-nodeselector.yaml
+
+4. Check the pod to be present on same node as the label is applied
+
+$ kubectl get pods -o wide
