@@ -1,0 +1,8 @@
+1. git clone https://github.com/kushaggarwal/Devops-807.git
+2. cd Devops-807/Kubernetes/services
+3. kubectl apply -f deployment.yaml
+3. kubectl apply -f clusterip.yaml
+4. kubectl apply -f nodeport.yaml
+5. kubectl apply -f loadbalancer.yaml
+6. kubectl get svc
+7. kubectl get pods
