@@ -19,9 +19,15 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "web1" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.small"
+  instance_type = var.instance_type
 
   tags = {
     Name = "HelloWorld54"
   }
+}
+
+resource "aws_s3_bucket" "sample_bucket" {
+
+bucket = var.bucket_name
+  
 }
