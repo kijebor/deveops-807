@@ -26,8 +26,22 @@ resource "aws_instance" "web1" {
   }
 }
 
-resource "aws_s3_bucket" "sample_bucket" {
+# resource "aws_s3_bucket" "sample_bucket" {
 
-bucket = var.bucket_name
+# bucket = var.bucket_name
   
+# }
+
+module "s3_bucket" {
+  source = "terraform-aws-modules/s3-bucket/aws"
+
+  bucket = var.bucket_name
+  acl    = "private"
+
+  control_object_ownership = true
+  object_ownership         = "ObjectWriter"
+
+  versioning = {
+    enabled = true
+  }
 }
